@@ -59,7 +59,7 @@ export default function Signin() {
               <input
                 type="email"
                 name=""
-                id=""
+                id="email"
                 placeholder="Enter Email Address"
                 className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 autoFocus
@@ -74,9 +74,8 @@ export default function Signin() {
               <input
                 type="password"
                 name=""
-                id=""
+                id="password"
                 placeholder="Enter Password"
-                minLength="6"
                 className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 required
                 onChange={handleChange}

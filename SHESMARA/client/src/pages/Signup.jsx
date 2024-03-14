@@ -64,7 +64,7 @@ export default function Signup() {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                 </span>
-                <input type="text" className="block w-full py-3 text-black-700 bg-white border rounded-lg px-11 dark:bg-white-900 dark:text-black-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="username" onchange={handleChange}/>
+                <input type="text" className="block w-full py-3 text-black-700 bg-white border rounded-lg px-11 dark:bg-white-900 dark:text-black-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="username" onChange={handleChange}/>
             </div>
             <div class="relative flex items-center mt-4">
                 <span class="absolute">
@@ -72,7 +72,7 @@ export default function Signup() {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </span>
-                <input type="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-white-900 dark:text-black-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" onchange={handleChange}/>
+                <input type="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-white-900 dark:text-black-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" onChange={handleChange}/>
             </div>
 
          <div class="relative flex items-center mt-4">
@@ -85,7 +85,9 @@ export default function Signup() {
             </div>
             
         <div class="mt-4">
-            <button class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">{loading ? 'Loading...' : 'Sign In'}
+            <button class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize 
+            transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none 
+            focus:ring focus:ring-gray-300 focus:ring-opacity-50"> {loading ? 'Loading...' : 'Sign up'}
             </button>
         </div>
         <a href="#" className="flex items-center justify-center mt-1  text-balck-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-black-200 hover:bg-gray-50 dark:hover:bg-gray-600 ">

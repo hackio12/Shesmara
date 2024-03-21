@@ -30,6 +30,12 @@ export default function OAuth() {
         }
     }
   return (
-    <button className='w-full px-8 py-0.2 font-bold text-start' onClick={handleGoogleClick} type='button' >Continue with Google</button>
-  )
+    <button
+      onClick={handleGoogleClick}
+      type='button'
+      className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95'
+    >
+      Continue with google
+    </button>
+  );
 }

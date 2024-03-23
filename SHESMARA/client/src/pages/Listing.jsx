@@ -107,11 +107,11 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-            {currentUser && listing.userRef !== currentUser._id && !Contact &&(
-                <button onClick={()=>setcontact(true)} className='bg-slate-700 text-white 
+            {currentUser && listing.userRef !== currentUser._id && !showContact &&(
+                <button onClick={()=>setShowContact(true)} className='bg-slate-700 text-white 
                 rounded-lg uppercase hover:opacity-95 p-3'>Contact Landloard</button>
             )}
-            {setShowContact && <Contact listing={listing}/>}
+            {showContact && <Contact listing={listing}/>}
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ import 'swiper/css/bundle';
 import {Navigation} from 'swiper/modules';
 import SwiperCore from 'swiper';
 import ListingItem from '../components/ListingItem';
+import Footer from '../components/Footer';
 
 
 export default function Home() {
@@ -75,14 +76,14 @@ export default function Home() {
 
       {/* Swiper*/}
       <Swiper navigation>
-      {
-        offerListings && offerListings.length >0 && offerListings.map((listing)=> (
-          <SwiperSlide>
-            <div style={{background:`url(${listing.imageUrls[0]}) center`,backgroungSize:"cover"}} className="h-[500px]" key={listing._id}></div>
-          </SwiperSlide>
-        ))
-      }
-      </Swiper>
+  {offerListings && offerListings.length > 0 && offerListings.map((listing) => (
+    <SwiperSlide key={listing._id}>
+      <div className="h-screen">
+        <div style={{ backgroundImage: `url(${listing.imageUrls[0]})`, backgroundSize: "cover", backgroundPosition: "center" }} className="h-full" />
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
 
       {/* listing results for offer, sale and rent */}
       <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10">
@@ -138,13 +139,15 @@ export default function Home() {
                   <ListingItem  listing={listing} key={listing._id}/>
                 ))
               }
+              
             </div>
           </div>
 
         )
         }
       </div>
-
+      <Footer/>
     </div>
+    
   )
 }

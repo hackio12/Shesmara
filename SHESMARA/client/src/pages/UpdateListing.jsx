@@ -40,6 +40,13 @@ export default function UpdateListing() {
                 return;
             }
             setFormData(data);
+
+            setFormData(prevState => ({
+                ...prevState,
+                offer: data.offer,
+                parking: data.parking,
+                furnished: data.furnished
+            }));
         }
         fetchlisting();
     },[]);
@@ -168,7 +175,7 @@ export default function UpdateListing() {
 
                 <div className='flex gap-6 flex-wrap'>
                     <div className="flex gap-4">
-                        <input type="checkbox" id='sale' className='w-5' onChange={handleChange} checked={formData.type === 'sale'} />
+                        <input type="checkbox" id='sale' className='w-5' onChange={handleChange} checked={formData.type === 'sale' } />
                         <span>Sell</span>
                     </div>
                     <div className="flex gap-4">
@@ -250,7 +257,7 @@ export default function UpdateListing() {
 
                 }
                 <button disabled={loading || uploading } className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80 '>
-                {loading ? 'Creating....' :'Update Listing'} </button>
+                {loading ? 'Updating....' :'Update Listing'} </button>
                 {error && <p className='text-red-700 text-sm'>{error}</p>}
             </div>
         </form>

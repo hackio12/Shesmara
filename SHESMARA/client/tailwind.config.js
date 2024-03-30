@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    // ...
-  ],
-}
+export const content = ['./index.html', './src/**/*.{js,ts,jsx,tsx}'];
+export const theme = {
+  extend: {
+    backgroundImage: {
+      'white-gradient': 'radial-gradient(white, #fff0)',
+    }
+  }
+};
+export const plugins = [];
+export const esModule = true;

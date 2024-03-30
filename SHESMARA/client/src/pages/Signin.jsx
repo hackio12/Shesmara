@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
 import logo from '../images/logo.png';
+import OAuth from '../components/OAuth';
 
 export default function Signin() {
   const [formData, setFormData] = useState({});
@@ -49,77 +50,70 @@ export default function Signin() {
   };
 
   return (
-    <section>
-      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
-        <div className="justify-center mx-auto text-left align-bottom transition-all transform bg-white rounded-lg sm:align-middle sm:max-w-2xl sm:w-full">
-          <div className="grid flex-wrap items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl">
-            <div className="w-full px-6 py-3">
-              <div className="flex justify-center mb-4 ">
-                <img
-                  className="h-25"
-                  src={logo}
-                  alt="Logo"
-                />
-              </div>
-              <div>
-                <div className="mt-1 text-left sm:mt-5">
-                <h2 className='flex flex-wrap justify-center mx-auto font-bold text-3xl text-gray-600' > Welcome Back!</h2>
-                  <div className="inline-flex items-center w-full">
-                  <h1 className="flex text-3xl text-center font-bold my-2">Sign In</h1>
-                  </div>
-                </div>
+    
+   <div className="flex items-center justify-center h-screen w-full px-5 sm:px-0">
+   <div className="flex bg-white rounded-lg shadow-lg border overflow-hidden max-w-sm lg:max-w-4xl w-full">
+     <div
+       className="hidden md:block lg:w-1/2 bg-cover bg-blue-700"
+       style={{
+         backgroundImage: `url(https://www.tailwindtap.com//assets/components/form/userlogin/login_tailwindtap.jpg)`,
+       }}
+     ></div>
+     <div className="w-full p-8 lg:w-1/2">
+<img
+               className="h-25"
+               src={logo}
+               alt="Logo"
+             />
+       <p className="text-xl text-gray-600 text-center">Welcome back!</p>
+<form onSubmit={handleSubmit} className="mt-6 space-y-2">
+       <div className="mt-4">
+         <label className="block text-gray-700 text-sm font-bold mb-2">
+           Email Address
+         </label>
+         <input
+           className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
+           type="email" onChange={handleChange} id='email'
+           required
+         />
+       </div>
+       <div className="mt-4 flex flex-col justify-between">
+         <div className="flex justify-between">
+           <label className="block text-gray-700 text-sm font-bold mb-2" >
+             Password
+           </label>
+         </div>
+         <input
+           className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
+           type="password" onChange={handleChange} id='password'
+         />
+         <a
+           href="#"
+           className="text-xs text-gray-500 hover:text-gray-900 text-end w-full mt-2"
+         onClick={handleForgotPassword} >
+           Forget Password?
+         </a>
+       </div>
+       <div className="mt-8">
+         <button className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">
+           {loading ? 'Loading...' : 'LogIn'}
+         </button>
+       </div>
+</form>
+       <OAuth/>
+       
+       <div className="mt-4 flex items-center w-full text-center">
+         <div
+           className="text-xs text-gray-500 capitalize text-center w-full"
+         >
+           Don&apos;t have any account yet?
+           <Link to="/sign-up" className="text-blue-700"> Sign Up</Link>
+         </div>
+         {error && <p className='text-red-500 mt-5'>{error}</p>}
+       </div>
+     </div>
+   </div>
+ </div>
+);
+};
 
-                <form onSubmit={handleSubmit} className="mt-6 space-y-2">
-                  <div>
-                    <label htmlFor="email" className="sr-only">Email</label>
-                    <input
-                      type="text"
-                      name="email"
-                      id="email"
-                      className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
-                      placeholder="Enter your email"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="password" className="sr-only">Password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
-                      placeholder="Enter your password"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="flex flex-col mt-4 lg:space-y-2">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    >
-                      {loading ? 'Loading...' : 'Sign In'}
-                    </button>
-                    <a href="#" type="button" className="inline-flex justify-center py-4 text-base font-medium text-gray-500 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm" onClick={handleForgotPassword} > Forgot your Password? </a>
-                  </div>
-                  
-                </form>
-                {error && (
-                  <div className="text-red-500 text-center mt-4">{error}</div>
-                )}
-                <div className="mt-4 text-center">
-                  <p className="text-sm text-gray-500">Don't have an account? <Link to="/sign-up" className="font-medium text-blue-600 hover:text-blue-500">Sign up</Link></p>
-                </div>
-              </div>
-            </div>
-            <div className="order-first hidden w-full lg:block">
-              <img
-                className="object-cover h-full bg-cover rounded-lg"
-                src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHJlYWwlMjBlc3RhdGV8ZW58MHx8MHx8fDA%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt=""></img>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}

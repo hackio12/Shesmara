@@ -92,7 +92,6 @@ export default function Header() {
 
     return (
         <header className='relative bg-white shadow-none'>
-            <div className="px-7 mx-4">
                 <div className="flex items-center justify-between">
                     <div className="inline-block">
                         <Link to='/'>
@@ -134,7 +133,6 @@ export default function Header() {
                         )}
                     </div>
                 </div>
-            </div>
             {/* Sign-out modal */}
             {showSignOutModal && (
                 <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
